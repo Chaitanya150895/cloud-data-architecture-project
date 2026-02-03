@@ -1,0 +1,17 @@
+{
+  "name": "Ingest_Sales_Data",
+  "properties": {
+    "activities": [
+      {
+        "name": "CopySalesData",
+        "type": "Copy",
+        "inputs": [{"referenceName": "SalesSource"}],
+        "outputs": [{"referenceName": "SalesLake"}],
+        "typeProperties": {
+          "source": {"type": "SqlSource"},
+          "sink": {"type": "AzureBlobSink"}
+        }
+      }
+    ]
+  }
+}

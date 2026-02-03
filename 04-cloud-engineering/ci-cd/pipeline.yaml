@@ -1,0 +1,17 @@
+trigger:
+  branches:
+    include:
+      - main
+
+jobs:
+- job: DeployADF
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - task: AzureResourceManagerTemplateDeployment@3
+    inputs:
+      deploymentScope: 'Resource Group'
+      azureResourceManagerConnection: 'AzureServiceConnection'
+      location: 'East US'
+      templateLocation: 'Linked artifact'
+      csmFile: '04-cloud-engineering/adf-pipelines/sample-pipeline.json'

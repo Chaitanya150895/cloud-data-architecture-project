@@ -1,0 +1,8 @@
+{
+  "name": "SalesForecastPipeline",
+  "steps": [
+    {"name": "DataPrep", "type": "PythonScript"},
+    {"name": "TrainModel", "type": "AzureMLTrain"},
+    {"name": "DeployModel", "type": "AzureMLDeploy"}
+  ]
+}
